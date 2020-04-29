@@ -1,3 +1,5 @@
-## 1.0.0
+# Changelog
 
-- Initial version, created by Stagehand
+## 0.0.0
+
+- Initialize package on pub

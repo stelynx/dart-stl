@@ -1,14 +1,13 @@
 name: standard_library
-description: A starting point for Dart libraries or applications.
-# version: 1.0.0
-# homepage: https://www.example.com
+description: Dart STL (Standard Library) implementing various data structures and algorithms.
+version: 0.0.0
+homepage: https://github.com/stelynx/dart-stl
+repository: https://github.com/stelynx/dart-stl
 
 environment:
-  sdk: '>=2.7.0 <3.0.0'
-
-#dependencies:
-#  path: ^1.6.0
+  sdk: ">=2.7.0 <3.0.0"
 
 dev_dependencies:
+  test_coverage: ^0.4.1
   pedantic: ^1.8.0
   test: ^1.6.0

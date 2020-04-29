@@ -1,0 +1,19 @@
+on: push
+name: Lint & Test
+jobs:
+  build:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+    container:
+      image: google/dart:latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: stelynx/dart-full-coverage@v1.0.3
+        with:
+          package: standard_library
+      - run: pub get
+      - run: dartanalyzer lib test example
+      - run: pub run test_coverage
+      - uses: codecov/codecov-action@v1.0.2
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}

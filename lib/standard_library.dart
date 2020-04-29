@@ -1,8 +1,7 @@
-/// Support for doing something awesome.
+/// Dart STL (Standard Library)
 ///
-/// More dartdocs go here.
+/// This library implements various data structures and algorithms
+/// making a Dart more competitive programming friendly language.
 library standard_library;
 
 export 'src/standard_library_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
