@@ -13,3 +13,4 @@ doc/api/
 # From test_coverage package
 test/.test_coverage.dart
 coverage/
+coverage_badge.svg
