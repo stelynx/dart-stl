@@ -4,4 +4,4 @@
 /// making a Dart more competitive programming friendly language.
 library standard_library;
 
-export 'src/standard_library_base.dart';
+export 'src/data_structures.dart';

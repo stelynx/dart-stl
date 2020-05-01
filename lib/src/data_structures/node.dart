@@ -43,14 +43,27 @@ class ChainNode<T> extends SequenceNode<T> {
 }
 
 class TreeNode<T> extends Node<T> {
-  List<TreeNode<T>> _children;
+  List<TreeNode<T>> _children = <TreeNode<T>>[];
 
   TreeNode(T value) : super(value);
 
   List<TreeNode<T>> get children => _children;
-  set children(List<TreeNode<T>> children) => _children = children;
+  set children(List<TreeNode<T>> children) {
+    assert(children != null);
+    _children = children;
+  }
 
-  bool isLeaf() => _children == null || _children.isEmpty;
+  void addChild(TreeNode<T> node) {
+    if (node is ParentAwareTreeNode) {
+      ParentAwareTreeNode<T> castedNode = node as ParentAwareTreeNode<T>;
+      castedNode.parent = this;
+      _children.add(castedNode);
+    } else {
+      _children.add(node);
+    }
+  }
+
+  bool isLeaf() => _children.isEmpty;
 }
 
 class ParentAwareTreeNode<T> extends TreeNode<T> {
