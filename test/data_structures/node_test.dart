@@ -2,6 +2,30 @@ import 'package:standard_library/standard_library.dart';
 import 'package:test/test.dart';
 
 void main() {
+  group('Node', () {
+    test('should be able to re-set the value', () {
+      final SequenceNode<int> node = SequenceNode<int>(1);
+      node.value = 2;
+
+      expect(node.value, equals(2));
+    });
+
+    test('should have a hashCode based on value', () {
+      final int value = 42;
+      final SequenceNode<int> node = SequenceNode<int>(value);
+
+      expect(node.hashCode, equals(value.hashCode));
+    });
+
+    test('should contain runtimeType and value when printed', () {
+      final SequenceNode<int> node = SequenceNode<int>(1);
+      final String printed = node.toString();
+
+      expect(printed.contains('1'), isTrue);
+      expect(printed.contains('SequenceNode'), isTrue);
+    });
+  });
+
   group('SequenceNode', () {
     test('should have value and next', () {
       final SequenceNode<int> node1 = SequenceNode<int>(1);
@@ -55,6 +79,12 @@ void main() {
 
       node.children = <TreeNode<int>>[];
       expect(node.isLeaf(), isTrue);
+    });
+
+    test('should throw exception when assigning null to children', () {
+      final TreeNode<int> node = TreeNode<int>(1);
+
+      expect(() => node.children = null, throwsA(isA<AssertionError>()));
     });
   });
 
