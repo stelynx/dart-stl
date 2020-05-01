@@ -2,6 +2,28 @@ import 'package:standard_library/standard_library.dart';
 import 'package:test/test.dart';
 
 void main() {
+  group('factory from elements', () {
+    test('should place left-most element on top with leftTop = true', () {
+      final List<int> elements = <int>[1, 2, 3, 4, 5, 6];
+      final Stack<int> stack = Stack<int>.from(elements, leftTop: true);
+
+      for (int i = 0; i < elements.length; i++) {
+        final int top = stack.displace();
+        expect(top, equals(elements[i]));
+      }
+    });
+
+    test('should place right-most element on top with leftTop = false', () {
+      final List<int> elements = <int>[1, 2, 3, 4, 5, 6];
+      final Stack<int> stack = Stack<int>.from(elements, leftTop: false);
+
+      for (int i = elements.length - 1; i >= 0; i--) {
+        final int top = stack.displace();
+        expect(top, equals(elements[i]));
+      }
+    });
+  });
+
   group('back', () {
     test('should return null when stack is empty', () {
       final Stack<int> stack = Stack<int>();

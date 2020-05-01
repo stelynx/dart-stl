@@ -37,11 +37,11 @@ class LinkedStack<E> implements Stack<E> {
   factory LinkedStack.from(List<E> elements, {bool leftTop = true}) {
     final LinkedStack<E> stack = LinkedStack<E>();
     if (leftTop) {
-      for (int i = elements.length; i >= 0; i--) {
+      for (int i = elements.length - 1; i >= 0; i--) {
         stack.emplace(elements[i]);
       }
     } else {
-      for (int i = 0; i < elements.length; i--) {
+      for (int i = 0; i < elements.length; i++) {
         stack.emplace(elements[i]);
       }
     }
